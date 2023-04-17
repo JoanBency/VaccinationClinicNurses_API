@@ -1,0 +1,17 @@
+service: vaccinationclinicnurses-api
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+
+functions:
+  hello:
+    handler: app.server
+    events: # events trigger lambda functions
+      - http: # this is an API Gateway HTTP event trigger
+          path: /nurses
+          method: get
+          cors: true
